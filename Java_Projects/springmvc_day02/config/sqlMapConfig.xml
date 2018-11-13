@@ -5,6 +5,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<!-- 通过mapper接口默认配置，将mapper.xml和mapper.java放到同一个包下面 -->
 	<!--加载映射文件 -->
-	<!-- <mappers> <mapper resource="mybatis/sqlMapper/User.xml" /> <mapper 
+	<!-- <mappers><mapper resource="mybatis/sqlMapper/User.xml" /> <mapper 
 		resource="mybatis/sqlMapper/UserMapper.xml" /> </mappers> -->
 </configuration>
