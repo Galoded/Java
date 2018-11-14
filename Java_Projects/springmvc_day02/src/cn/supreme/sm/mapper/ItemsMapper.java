@@ -19,6 +19,8 @@ public interface ItemsMapper {
     List<Items> selectByExampleWithBLOBs(ItemsExample example);
 
     List<Items> selectByExample(ItemsExample example);
+    
+    List<Items> findAll();
 
     Items selectByPrimaryKey(Integer id);
 
