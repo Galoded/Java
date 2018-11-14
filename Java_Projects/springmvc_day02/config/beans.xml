@@ -21,11 +21,36 @@
 		<property name="user" value="${jdbc.username}"></property>
 		<property name="password" value="${jdbc.password}"></property>
 	</bean>
-	
-	<!--2. 配置sqlSessionFactory -->
-	<bean id="sqlSessionFactorY" class="org.mybatis.spring.SqlSessionFactoryBean">
+
+	<!--2. 配置sqlSessionFactory、mybatis接口 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="configLocation" value="classpath:sqlMapConfig.xml"></property>
 	</bean>
+	<!-- mybatis接口开发 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value=""></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+	</bean>
+
 	<!--3. 配置事务 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" value="dataSource"></property>
+	</bean>
+	<!--配置通知 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="sava*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+	<!--配置拦截service -->
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice"
+			pointcut="execution(* cn.supreme.service.*.*(..))" />
+	</aop:config>
 </beans>
