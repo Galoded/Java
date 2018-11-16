@@ -24,11 +24,11 @@
 		<mvc:annotation-driven/>
 		
 		<!-- 配置自定义controller路径 -->
-		<context:component-scan base-package="cn.supreme"></context:component-scan>
+		<context:component-scan base-package="cn.supreme.sm"></context:component-scan>
 		
 		<!-- 配置sprigmvc视图解析器：解析逻辑试图 
 			 后台返回逻辑试图：index
-			视图解析器解析出真正物理视图：前缀+逻辑试图+后缀====/WEB-INF/view/index.jsp
+			视图解析器解析出真正物理视图：前缀+逻辑试图+后缀====/WEB-INF/jsps/index.jsp
 		-->
 		<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsps/"></property>
