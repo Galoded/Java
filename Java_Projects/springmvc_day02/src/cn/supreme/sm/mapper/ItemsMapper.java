@@ -20,8 +20,6 @@ public interface ItemsMapper {
 
     List<Items> selectByExample(ItemsExample example);
     
-    List<Items> findAll();
-
     Items selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Items record, @Param("example") ItemsExample example);
@@ -35,4 +33,8 @@ public interface ItemsMapper {
     int updateByPrimaryKeyWithBLOBs(Items record);
 
     int updateByPrimaryKey(Items record);
+    
+    List<Items> findAll();
+
+	List<Items> findItemsByName(String name);
 }

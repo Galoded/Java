@@ -195,6 +195,9 @@
 	<select id="findAll" resultMap="BaseResultMap">
 		select * from items
 	</select>
+	<select id="findItemsByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select * from items where name like '%${value}%'
+	</select>
 	<update id="updateByExampleSelective" parameterType="map">
 		update items
 		<set>
@@ -279,6 +282,7 @@
 		set name = #{name,jdbcType=VARCHAR},
 		price = #{price,jdbcType=REAL},
 		pic = #{pic,jdbcType=VARCHAR},
+		detail = #{detail,jdbcType=LONGVARCHAR},
 		createtime = #{createtime,jdbcType=TIMESTAMP}
 		where id = #{id,jdbcType=INTEGER}
 	</update>

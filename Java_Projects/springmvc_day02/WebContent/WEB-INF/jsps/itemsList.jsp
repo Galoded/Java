@@ -10,19 +10,28 @@
 <title>查询商品列表</title>
 </head>
 <body>
+	<form action="${pageContext.request.contextPath }/items/itemsByName.do"
+		method="post">
+		<table>
+			<tr>
+				<!--text的名称name必须和controller的方法中的参数名称一致  -->
+				<td><input type="text" name="name" id="name"></td>
+				<td><input type="submit" value="查询"></td>
+			</tr>
+		</table>
+	</form>
+	<a href="${pageContext.request.contextPath }/items/toAddItem.do">添加</a>
 	<form action="${pageContext.request.contextPath }/items/deleteByIds.do"
 		method="post">
-		查询条件：
 		<table width="100%" border=1>
 			<tr>
-				<td><input type="submit" value="查询" /></td>
 				<td><input type="submit" value="批量删除" /></td>
 			</tr>
 		</table>
 		商品列表：
 		<table width="100%" border=1>
 			<tr>
-				<td>ID</td>
+				<td></td>
 				<td>商品名称</td>
 				<td>商品图片</td>
 				<td>商品价格</td>
@@ -43,7 +52,7 @@
 					<td>${item.detail }</td>
 
 					<td><a
-						href="${pageContext.request.contextPath }/items/edit.do?id=${item.id}">修改</a>
+						href="${pageContext.request.contextPath }/items/toEditItems.do?id=${item.id}">修改</a>
 						<a
 						href="${pageContext.request.contextPath }/items/deleteByID.do?id=${item.id}">删除</a>
 					</td>
