@@ -40,6 +40,7 @@
 	<servlet>
 		<servlet-name>spring_mvc</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!--如果不配置springmvc.xml文件的路径，默认加载WEB-INF下[servlet名称]-servlet.xml的文件，这里是spring_mvc-servlet.xml -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:springmvc.xml</param-value>

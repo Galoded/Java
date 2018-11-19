@@ -18,20 +18,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		o.user_id =
 		u.id
 	</select>
-	<!-- resultMap -->
+	<!--主键列使用标签id，普通单列用标签result，依赖注入实体用association，集合使用collection -->
+	<!-- resultMap 自定义返回的结果集 -->
 	<resultMap type="cn.supreme.mybatis.po.OrdersExt" id="findOrdersAndUsersRstMap">
 		<!--订单信息 -->
 		<id column="id" property="id" />
 		<result column="user_id" property="userId" />
 		<result column="number" property="number" />
 		<!--关联的用户信息 -->
-		<!--association一对一映射 -->
+		<!--association一对一映射 ，实体中存在依赖注入user -->
 		<association property="user" javaType="cn.supreme.mybatis.po.User">
 			<!--把结果中的user_id列映射到User属性的id -->
 			<id column="user_id" property="id" />
 			<result column="username" property="username" />
 			<result column="sex" property="sex" />
 		</association>
+		<!--association类似于 -->
+		<!-- <id column="user_id" property="user.id" /> <result column="username" 
+			property="user.username" /> <result column="sex" property="user.sex" /> -->
 	</resultMap>
 	<select id="findOrdersAndUsersRstMap" resultMap="findOrdersAndUsersRstMap">
 		SELECT
