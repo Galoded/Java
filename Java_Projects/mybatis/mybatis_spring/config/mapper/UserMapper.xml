@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.superme.mybatis.mapper.UserMapper">
+	<!-- mapper接口代理通过jdk代理策略实现 -->
+	<!-- mapper接口和mapper配置文件对应 -->
+	<!--mapper.xml 1. 配置的mapper命名空间和mapper接口全限定名相同 ； 2. 配置的mapper的statement的id和mapper接口方法相同； 
+		3. 配置的mapper的 parameterType和mapper接口方法的入参类型相同； 4. 配置的mapper的resultType和mapper接口方法的返回值类型相同 -->
+
+	<select id="findUserById" parameterType="int"
+		resultType="cn.superme.mybatis.po.User">
+		SELECT * FROM USER WHERE id =#{id}
+	</select>
+
+</mapper>

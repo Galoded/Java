@@ -6,13 +6,15 @@ import cn.supreme.mybatis.po.User;
 import cn.supreme.mybatis.po.UserVO;
 
 public interface UserMapper {
-	
-	public User findUserById(int id);
 
-	public List<User> findUserByName(String username);
+	User findUserById(int id);
 
-	public void insertUser(User user);
-	
-	//public List<User> findUserByIdList(UserVO userVO);
-	public List<User> findUserByIdList(List<Integer> idList);
+	List<User> findUserByName(String username);
+
+	void insertUser(User user);
+
+	List<User> findUserByIdList(List<Integer> idList);
+
+	List<User> findUserByUserVo(UserVO userVO);
+
 }

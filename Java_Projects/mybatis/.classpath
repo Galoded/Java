@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="mybatis_01/src"/>
+	<classpathentry kind="src" path="mybatisGenerator/src"/>
+	<classpathentry kind="lib" path="mybatis_01/lib/asm-3.3.1.jar"/>
+	<classpathentry kind="lib" path="mybatis_01/lib/cglib-2.2.2.jar"/>
+	<classpathentry kind="lib" path="mybatis_01/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="mybatis_01/lib/javassist-3.17.1-GA.jar"/>
+	<classpathentry kind="lib" path="mybatis_01/lib/junit-4.9.jar"/>
+	<classpathentry kind="lib" path="mybatis_01/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="mybatis_01/lib/log4j-api-2.0-rc1.jar"/>
+	<classpathentry kind="lib" path="mybatis_01/lib/log4j-core-2.0-rc1.jar"/>
+	<classpathentry kind="lib" path="mybatis_01/lib/mybatis-3.2.7.jar"/>
+	<classpathentry kind="lib" path="mybatis_01/lib/mysql-connector-java-5.1.7-bin.jar"/>
+	<classpathentry kind="lib" path="mybatis_01/lib/slf4j-api-1.7.5.jar"/>
+	<classpathentry kind="lib" path="mybatis_01/lib/slf4j-log4j12-1.7.5.jar"/>
+	<classpathentry kind="lib" path="mybatisGenerator/lib/mybatis-3.2.7.jar"/>
+	<classpathentry kind="lib" path="mybatisGenerator/lib/mybatis-generator-core-1.3.2.jar"/>
+	<classpathentry kind="lib" path="mybatisGenerator/lib/mysql-connector-java-5.1.7-bin.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="mybatisGenerator/bin"/>
+</classpath>

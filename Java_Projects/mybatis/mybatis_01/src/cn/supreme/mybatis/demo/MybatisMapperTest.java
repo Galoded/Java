@@ -38,7 +38,9 @@ public class MybatisMapperTest {
 		try {
 			// 创建sqlsession
 			sqlSession = sqlSessionFactory.openSession();
+			// 通过sqlsession创建mapper代理对象
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+			// 调用mapper接口方法实现数据查询，区别于mybatis直接通过sqlsession的sql语句实现数据的查询
 			User user = userMapper.findUserById(28);
 			System.out.println(user);
 		} catch (Exception e) {
@@ -136,6 +138,33 @@ public class MybatisMapperTest {
 	}
 
 	@Test
+	public void findUserByUserVo() {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			User user =new User();
+			user.setUsername("陈小明");
+			user.setSex("1");
+			List<Integer> idList = new ArrayList<>();
+			idList.add(16);
+			idList.add(24);
+			idList.add(25);
+			UserVO userVO = new UserVO();
+			userVO.setUser(user);
+			userVO.setIdList(idList);
+			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+			List<User> userList =userMapper.findUserByUserVo(userVO);
+
+			System.out.println(userList);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 关闭资源
+			sqlSession.close();
+		}
+	}
+
+	@Test
 	public void findOrdersAndUsers() {
 		SqlSession sqlSession = null;
 		try {
@@ -194,7 +223,7 @@ public class MybatisMapperTest {
 			sqlSession.close();
 		}
 	}
-	
+
 	@Test
 	public void findUsersAndOrderDetailRstMap() {
 		SqlSession sqlSession = null;

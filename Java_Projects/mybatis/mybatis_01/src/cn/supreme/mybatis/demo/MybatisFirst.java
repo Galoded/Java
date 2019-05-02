@@ -28,7 +28,7 @@ public class MybatisFirst {
 			// 创建sqlsession
 			sqlSession = sqlSessionFactory.openSession();
 
-			// 执行executor
+			// 执行executor，即执行sqlsession的sql语句
 			User user = sqlSession.selectOne("test.findUserById", 1);
 			System.out.println(user);
 		} catch (Exception e) {
