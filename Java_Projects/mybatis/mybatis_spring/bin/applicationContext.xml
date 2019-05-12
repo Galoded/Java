@@ -18,7 +18,7 @@
 		<property name="maxIdle" value="5" />
 	</bean>
 
-	<!-- 事务管理,此处使用spring的jdbc，自动处理，无需配置 -->
+	<!-- 事务管理,此处使用spring的jdbc，需加载spring-jdbc和spring-tx包即可 -->
 
 	<!-- 获取sqlsessionfactory,mybatis的中枢 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -29,16 +29,13 @@
 	</bean>
 
 	<!-- 获取mapper代理类：确定sqlsessionfactory、mapper接口 -->
-	<!-- <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		注入sqlsessionfactory
+	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-		设置代理类的接口
 		<property name="mapperInterface" value="cn.superme.mybatis.mapper.UserMapper"></property>
-	</bean> -->
+	</bean>
 
 	<!-- 批量配置mapper代理类 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-	<property name="basePackage" value="cn.superme.mybatis.mapper"></property>
-	</bean>
+	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> <property 
+		name="basePackage" value="cn.superme.mybatis.mapper"></property> </bean> -->
 
 </beans>

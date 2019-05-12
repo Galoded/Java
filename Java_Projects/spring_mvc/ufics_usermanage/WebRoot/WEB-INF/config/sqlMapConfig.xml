@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="cn.superme.ssm.pojo.Users" alias="users" />
+	</typeAliases>
+
+	<!-- spring配置文件批量扫描，mapper接口和mapper配置文件需同名 -->
+	<!--配置mybatis：指定mapper配置文件，或者包的路径 -->
+	<!-- <mappers> <mapper resource="mapper/UsersMapper.xml" /> </mappers> -->
+</configuration>
