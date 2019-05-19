@@ -25,6 +25,13 @@ public class UserController {
 		return "users";
 	}
 
+	@RequestMapping(value = "findUser")
+	private Users findUsersByIdorName(String user_id_name, Model model) {
+		List<Users> usersList = userService.findUsersByIdorName(user_id_name);
+		model.addAttribute("usersList", usersList);
+		return usersList;
+	}
+
 	@RequestMapping(value = "usersUpdateById/{user_id}")
 	public String updateUsers(@PathVariable String user_id, Model model) {
 		Users users = this.findUsersById(user_id);

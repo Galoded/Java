@@ -7,44 +7,57 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>UFMEN</title>
+<script type="text/javascript">
+	
+</script>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/rest/user/deleteByIds.do" method="post">
-		<input type="text" name="txt" align="right"> 
-		<input type="submit" value="查询" align="right"> 
-		<input type="submit" value="批量删除" align="right">
-		<table width="100%" border="1" title="人员列表">
-			<tr bgcolor="gray" align="center">
-				<td></td>
-				<td>工号</td>
-				<td>姓名</td>
-				<td>江湖外号</td>
-				<td>性别</td>
-				<td>生日</td>
-				<td>电话</td>
-				<td>联系地址</td>
-				<td>操作</td>
+	<div id="AddUser">
+		<table width="100%" border="0" cellspacing="0">
+			<tr>
+				<td style="text-align: right"><input type="text" id="userName"
+					name="userName" onclick="searchName();" /><input type="button"
+					value="搜索" border="0"><input type="button" value="新增"
+					border="0"> <input type="button" value="批量删除" border="0"></td>
 			</tr>
-			<c:forEach items="${usersList}" var="user">
+		</table>
+	</div>
+	<div>
+		<table cellspacing="0" width="100%" border="1">
+			<tr>
+				<td width="5%"></td>
+				<td width="10%">工号</td>
+				<td width="10%">姓名</td>
+				<td width="10%">江湖外号</td>
+				<td width="10%">性别</td>
+				<td width="10%">生日</td>
+				<td width="10%">电话</td>
+				<td width="15%">联系地址</td>
+				<td width="20%">操作</td>
+			</tr>
+		</table>
+		<c:forEach items="${usersList}" var="user">
+			<table width="100%" border="0" cellspacing="0">
 				<tr>
-					<td><input type="checkbox" name="user_ids" value="${user.user_id}">
-					</td>
-					<td>${user.user_id}</td>
-					<td>${user.user_name}</td>
-					<td>${user.nick_name}</td>
-					<td>${user.sex}</td>
-					<td><fmt:formatDate value="${user.birthday}"
+					<td width="5%"><input type="checkbox" name="user_ids"
+						value="${user.user_id}"></td>
+					<td width="10%">${user.user_id}</td>
+					<td width="10%">${user.user_name}</td>
+					<td width="10%">${user.nick_name}</td>
+					<td width="10%">${user.sex}</td>
+					<td width="10%"><fmt:formatDate value="${user.birthday}"
 							pattern="yyyy-MM-dd" /></td>
-					<td>${user.telephone}</td>
-					<td>${user.address}</td>
-					<td><a
+					<td width="10%">${user.telephone}</td>
+					<td width="15%">${user.address}</td>
+					<td width="20%"><a
 						href="${pageContext.request.contextPath}/rest/user/usersUpdateById/${user.user_id}">修改</a>
 						<a
 						href="${pageContext.request.contextPath}/user/usersDeleteById.do?user_id=${user.user_id}">删除</a>
 					</td>
 				</tr>
-			</c:forEach>
-		</table>
-	</form>
+			</table>
+		</c:forEach>
+
+	</div>
 </body>
 </html>
