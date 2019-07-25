@@ -40,4 +40,16 @@ public class UserService implements IUserService {
 		userDao.deleteUsersById(user_id);		
 	}
 
+	@Override
+	public List<Users> findUsersByIdorName(String user_id_name) {
+		List<Users> userList = userDao.findUsersByIdorName(user_id_name);	
+		return userList;
+	}
+
+	@Override
+	public void deleteUsersByIds(String[] user_ids) {
+		userDao.deleteUsersByIds(user_ids);		
+		
+	}
+
 }

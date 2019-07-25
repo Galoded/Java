@@ -5,6 +5,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/sql"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebRoot/WEB-INF/config1"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebRoot/WEB-INF/config"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebRoot/source"/>
         <property name="context-root" value="ufics_usermanage"/>
         <property name="java-output-path" value="/ufics_usermanage/WebRoot/WEB-INF/classes"/>
     </wb-module>

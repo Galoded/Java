@@ -1,0 +1,17 @@
+[
+  {
+	"id": "acctradeNode",    
+	"text": "账户交易组",    
+  	"state": "closed"
+  },
+  {
+	"id": "clearNode",    
+	"text": "日终交易组",    
+  	"state": "closed",
+  	"children":[{   
+  		"id": "clearNode",
+        "text":"日终交易",    
+      	"state": "closed"
+    }]   
+  }
+]

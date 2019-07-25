@@ -49,11 +49,11 @@
 				<td><input type="text" name="address" value="${users.address}">
 				</td>
 			</tr>
-			<tr>
+			<%-- <tr>
 				<td>照片</td>
 				<td><input type="text" name="address" value="${users.address}">
 				</td>
-			</tr>
+			</tr> --%>
 			<tr>
 				<td><input type="submit" value="提交"></td>
 			</tr>

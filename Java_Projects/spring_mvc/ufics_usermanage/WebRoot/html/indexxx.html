@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<!-- 引入外部CSS文件 -->
+	<link rel="stylesheet" href="themes/icon.css" type="text/css"></link>
+	<link rel="stylesheet" href="themes/default/easyui.css" type="text/css"></link>
+	
+	<!-- 引入外部JS文件 -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+</head>
+<body>
+	<div id="layout" class="easyui-layout" style="width:600px;height:400px;" data-options="fit:true"> 
+	  
+	    <div data-options="region:'north',split:false" style="height:50px;"></div>  
+	     
+	    <div data-options="region:'south',split:false" style="height:50px;"></div>  
+	     
+	    <div data-options="region:'west',title:'所有菜单',split:true" style="width:200px;">
+	    	<div id="accordion" class="easyui-accordion" style="width:200px;height:200px;" data-options="fit:true,selected:false">   
+			    <div title="机构人员" style="overflow:auto;padding:10px;"> 
+			    	<ul id="personTree" class="easyui-tree" data-options="iconCls:'icon-blank'">	
+			    	</ul>  
+			    </div>   
+			    <div title="机构产品" style="padding:10px;">   
+			    </div>   
+			    <div title="机构事迹">   
+			    </div>   
+			    <div title="机构简介">   
+			    </div>   
+			</div>  	    
+	    </div>
+	       
+	    <div data-options="region:'center'," style="padding:5px;background:#eee;">
+			<div id="centerTabs" class="easyui-tabs" style="width: 500px; height: 250px;" data-options="fit:true,border:false,plain:true">
+			</div>
+		</div>   
+	</div>
+	<script type="text/javascript">
+		$("#personTree").tree({
+			//数据源
+			data:[
+			      {
+			    	"id": "acctradeNode",    
+			    	"text": "账户交易组",    
+			      	"state": "closed"
+			      },
+			      {
+			    	"id": "clearNode",    
+			    	"text": "日终交易组",    
+			      	"state": "closed",
+			      	"children":[{   
+			      		"id": "clearNode",
+			            "text":"日终交易",    
+				      	"state": "closed"
+			        }]   
+			      }],
+			
+		});
+	</script>
+	<script type="text/javascript">
+		$("#personTree").tree({
+			onClick:function(node){
+				var title = node.text;
+				var flag = $("#centerTabs").tabs("exists",title);
+				if(!flag){
+			    	$("#centerTabs").tabs('add',{
+			    		id:title,
+			    	    title:title,    
+			    	    content:'Tab Body',    			    	    
+			    	    closable:true,
+			    	    href:"index2.html"
+			    	});
+				}
+			}
+		});
+	</script>
+</body>
+</html>

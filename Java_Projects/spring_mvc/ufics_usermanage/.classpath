@@ -37,5 +37,9 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log4j-core-2.0-rc1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/slf4j-api-1.7.5.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/slf4j-log4j12-1.7.5.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jackson-core-asl-1.9.11.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jackson-mapper-asl-1.9.11.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json-lib-2.4-jdk15.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/fastjson-1.2.47.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

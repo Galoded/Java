@@ -17,4 +17,8 @@ public interface UsersMapper {
 	void insertUsers(@Param("record") Users user);
 	
 	void deleteUsersById(String user_id);
+
+	List<Users> findUsersByIdorName(String user_id_name);
+
+	void deleteUsersByIds(String[] user_ids);
 }

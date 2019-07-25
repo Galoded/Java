@@ -11,15 +11,27 @@
 		<result column="telephone" property="telephone" jdbcType="VARCHAR" />
 		<result column="address" property="address" jdbcType="VARCHAR" />
 	</resultMap>
-	<select id="findAllUsers" resultMap="userMap">
+	
+	<!-- 查询所有用户 -->
+	<select id="findAllUsers" resultMap="userMap" flushCache="true" useCache="false">
 		SELECT * FROM users ORDER BY
 		user_id
 	</select>
+	
+	<!-- 根据用户id精确查询用户  -->
 	<select id="findUsersById" parameterType="java.lang.String"
-		resultMap="userMap">
+		resultMap="userMap" flushCache="true" useCache="false">
 		SELECT * FROM users WHERE
 		user_id = #{user_id}
 	</select>
+	
+	<!-- 根据用户id或者user_name模糊查找用户 -->
+	<select id="findUsersByIdorName" parameterType="java.lang.String"
+		resultMap="userMap" flushCache="true" useCache="false">
+		SELECT * FROM users WHERE
+		user_id LIKE "%"#{user_id_name}"%" or user_name LIKE "%"#{user_id_name}"%"
+	</select>
+	
 	<update id="updateUsersById" parameterType="users">
 		UPDATE users
 		SET
@@ -38,6 +50,7 @@
 		WHERE user_id =
 		#{record.user_id,jdbcType=VARCHAR}
 	</update>
+	
 	<insert id="insertUsers" parameterType="users">
 		INSERT INTO users
 		(user_id, user_name, nick_name,
@@ -48,10 +61,19 @@
 		#{record.nick_name,jdbcType=VARCHAR},
 		#{record.sex,jdbcType=CHAR},
 		#{record.birthday,jdbcType=DATE},
-		#{record.telephone,jdbcType=VARCHAR}
+		#{record.telephone,jdbcType=VARCHAR},
 		#{record.address,jdbcType=VARCHAR})
 	</insert>
+	
 	<delete id="deleteUsersById" parameterType="java.lang.String">
 		DELETE FROM users WHERE user_id = #{user_id,jdbcType=VARCHAR}
 	</delete>
+	
+	<delete id="deleteUsersByIds">
+		DELETE FROM users WHERE user_id IN 
+		<foreach collection="array" index="index" item="user_id" open="(" close=")" separator=",">
+		  #{user_id}
+		</foreach>
+	</delete>
+	
 </mapper>

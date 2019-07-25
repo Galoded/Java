@@ -29,16 +29,16 @@
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
 
-	<!-- 事务管理：事务管理器、通知、切点 -->
+	<!-- （spring声明式事务）事务管理：事务管理器、通知、切点 -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
-			<!-- 设置事务详情 -->
-			<tx:method name="get*" read-only="true" propagation="SUPPORTS" />
-			<tx:method name="find*" read-only="true" propagation="SUPPORTS" />
+			<!-- 设置事务详情：事务属性五边形（传播行为propagation、隔离级别isolation、是否只读read-only、超时timeout、回滚规则） -->
+			<tx:method name="get*" read-only="true" propagation="SUPPORTS" isolation="DEFAULT"/>
+			<tx:method name="find*" read-only="true" propagation="SUPPORTS" timeout="-1" rollback-for=""/>
 			<tx:method name="select*" read-only="true" propagation="SUPPORTS" />
 			<tx:method name="add*" propagation="REQUIRED" />
 			<tx:method name="save*" propagation="REQUIRED" />

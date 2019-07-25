@@ -42,4 +42,15 @@ public class UserDao implements IUserDao{
 		userMapper.deleteUsersById(user_id);		
 	}
 
+	@Override
+	public List<Users> findUsersByIdorName(String user_id_name) {
+		List<Users> userList = userMapper.findUsersByIdorName(user_id_name);
+		return userList;
+	}
+
+	@Override
+	public void deleteUsersByIds(String[] user_ids) {
+		userMapper.deleteUsersByIds(user_ids);	
+	}
+
 }

@@ -15,5 +15,9 @@ public interface IUserDao {
 	void insertUsers(Users user);
 	
 	void deleteUsersById(String user_id);
+
+	List<Users> findUsersByIdorName(String user_id_name);
+
+	void deleteUsersByIds(String[] user_ids);
 	
 }
